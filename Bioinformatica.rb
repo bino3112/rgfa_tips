@@ -15,7 +15,7 @@ lines = ["H\tVN:Z:1.0",
 		 "L\t4\t+\t5\t+\t0M"]
 lines.each {|l| gfa1 << l}
 
-#multiple pit node and single father
+#multiple pit nodes and single father
 gfa2 = RGFA.new
 lines = ["H\tVN:Z:1.0", 
 		 "S\t1\tAAA", 
@@ -29,7 +29,7 @@ lines = ["H\tVN:Z:1.0",
 		 "L\t3\t+\t5\t+\t0M"]
 lines.each {|l| gfa2 << l}
 
-#multiple pit node and multiple father
+#multiple pit nodes and multiple father
 gfa3 = RGFA.new
 lines = ["H\tVN:Z:1.0", 
 		 "S\t1\tAAA", 
