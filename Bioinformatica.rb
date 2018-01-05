@@ -1,27 +1,48 @@
 require "rgfa"
 require "rgfatools"
-# "H\tVN:Z:1.0"
-# Header
-# s1 = "S\t1\tAAA"
-# s2 = "S\t2\tACG"
-# s3 = "S\t3\tCAT"
-# s4 = "S\t4\tTTT"
-# l1 = "L\t1\t+\t1\t+\t0M"
 
-# to_s = tostring string representation of rfga
-puts "Let's test this ;)"
-
+#single pit node and single father
 gfa1 = RGFA.new
 lines = ["H\tVN:Z:1.0", 
 		 "S\t1\tAAA", 
 		 "S\t2\tACG", 
 		 "S\t3\tCAT",
-		 "S\t4\tTTT", 
+		 "S\t4\tTTT",
+		 "S\t5\tGAC", 
 		 "L\t1\t+\t2\t+\t0M",
 		 "L\t2\t+\t3\t+\t0M", 
 		 "L\t3\t+\t4\t+\t0M",
 		 "L\t4\t+\t5\t+\t0M"]
 lines.each {|l| gfa1 << l}
+
+#multiple pit node and single father
+gfa2 = RGFA.new
+lines = ["H\tVN:Z:1.0", 
+		 "S\t1\tAAA", 
+		 "S\t2\tACG", 
+		 "S\t3\tCAT",
+		 "S\t4\tTTT",
+		 "S\t5\tGAC", 
+		 "L\t1\t+\t2\t+\t0M",
+		 "L\t2\t+\t3\t+\t0M", 
+		 "L\t3\t+\t4\t+\t0M",
+		 "L\t3\t+\t5\t+\t0M"]
+lines.each {|l| gfa2 << l}
+
+#multiple pit node and multiple father
+gfa3 = RGFA.new
+lines = ["H\tVN:Z:1.0", 
+		 "S\t1\tAAA", 
+		 "S\t2\tACG", 
+		 "S\t3\tCAT",
+		 "S\t4\tTTT",
+		 "S\t5\tGAC", 
+		 "L\t1\t+\t3\t+\t0M",
+		 "L\t2\t+\t3\t+\t0M", 
+		 "L\t3\t+\t4\t+\t0M",
+		 "L\t3\t+\t5\t+\t0M",
+		 "L\t5\t+\t6\t+\t0M"]
+lines.each {|l| gfa3 << l}
 
 
 def tips(graph)
@@ -101,3 +122,5 @@ end
 
 
 tips(gfa1)
+tips(gfa2)
+tips(gfa3)
